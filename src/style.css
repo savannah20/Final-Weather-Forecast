@@ -82,6 +82,12 @@ a {
   color: #2e98e4;
 }
 
+.developer {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
 footer {
   border-top: 1px solid #f9f7fe;
   text-align: center;
