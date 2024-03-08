@@ -9,21 +9,36 @@
   <body>
     <div class="weather-container">
       <header>
-        <form>
-          <input type="search" placeholder="Enter a city ..." required />
-          <input type="submit" value="seach" />
+        <form id="search-form">
+          <div class="form-group">
+            <label for="text"></label>
+            <input
+              type="search"
+              id="city-input"
+              placeholder="Enter a city.."
+              required
+              class="input-city"
+            />
+            <input type="submit" value="Search" class="search-button" />
+          </div>
         </form>
       </header>
       <main>
-        <div>
-          <h1>Kingston</h1>
-          <p>
-            Tuesday 14:49. Scattered clouds
-            <br />
-            Humidity: 66%, Wind 3.13km/h
-          </p>
+        <div class="current-weather">
+          <div>
+            <h1 class="current-city">Kingston</h1>
+            <p class="weather-details">
+              <span class="date-time">Saturday 15:32 </span>,moderate rain
+              <br />
+              Humidty:<strong>87%</strong>, Wind:<strong>7.k2m/h</strong>
+            </p>
+          </div>
+          <div class="current-temperature">
+            <span class="current-temperature-emoji">☀️</span>
+            <span class="current-temperature-number">14</span>
+            <span class="current-temperature-unit">°C</span>
+          </div>
         </div>
-        <div>☀️ 15°C</div>
       </main>
 
       <footer>
