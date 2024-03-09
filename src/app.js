@@ -12,6 +12,7 @@ function formatDate(date) {
   let currentDay = days[date.getDay()];
   let hours = date.getHours();
   let minutes = date.getMinutes();
+
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
@@ -23,9 +24,6 @@ function formatDate(date) {
   let formattedDate = `${currentDay}, ${hours}:${minutes}.`;
   return formattedDate;
 }
-let now = new Date();
-let dateChange = document.querySelector(".date-time");
-dateChange.innerHTML = formatDate(now);
 
 //Display weather once form is submitted getting data from API
 function displayWeather(response) {
@@ -35,6 +33,25 @@ function displayWeather(response) {
   let temperatureElement = document.querySelector(
     ".current-temperature-number"
   );
+
+  //Displays the Current time & date
+  let timeElement = document.querySelector(".date-time");
+  let date = new Date(response.data.time * 1000);
+  timeElement.innerHTML = formatDate(date);
+
+  //Displays the condition element
+  let conditionElement = document.querySelector("#condition");
+  conditionElement.innerHTML = response.data.condition.description;
+
+  //Displays the Current Humidity
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+
+  //Displays the Current windspeed
+  let windSpeedElement = document.querySelector("#wind-speed");
+  windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
+
+  //Displays the current temperature
   let currentTemperature = Math.round(response.data.temperature.current);
   temperatureElement.innerHTML = currentTemperature;
 }
