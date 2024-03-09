@@ -54,6 +54,10 @@ function displayWeather(response) {
   //Displays the current temperature
   let currentTemperature = Math.round(response.data.temperature.current);
   temperatureElement.innerHTML = currentTemperature;
+
+  //Display emoji
+  let iconElement = document.querySelector("#emoji-icon");
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"/>`;
 }
 
 //When searching for a city (i.e. Paris), display the city name on the page after the user submits the form.
