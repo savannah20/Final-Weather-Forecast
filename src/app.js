@@ -58,6 +58,8 @@ function displayWeather(response) {
   //Display emoji
   let iconElement = document.querySelector("#emoji-icon");
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"/>`;
+
+  getForecast(response.data.city);
 }
 
 //When searching for a city (i.e. Paris), display the city name on the page after the user submits the form.
@@ -75,7 +77,12 @@ function search(event) {
   searchCity(city);
 }
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "67df9233c1ab825065t4781f9f0oea35";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+function displayForecast(response) {
   let forecast = document.querySelector("#forecast");
 
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -106,4 +113,3 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
 searchCity("Kingston");
-displayForecast();

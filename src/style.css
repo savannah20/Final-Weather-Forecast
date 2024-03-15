@@ -86,7 +86,8 @@ a {
 }
 
 .forecast {
-  margin-top: -20px;
+  margin-top: -10px;
+  margin-bottom: 20px;
   text-align: center;
   color: black;
   display: flex;
